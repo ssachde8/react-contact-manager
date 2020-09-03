@@ -21,7 +21,18 @@ function reducer(state, action) {
             return {
                 ...state,
                 message: action.payload
-            }
+            };
+        }
+        case "CREATE_CONTACT":{
+            return {
+                ...state,
+                contacts: [...state.contacts, action.payload],
+                message: {
+                  type: 'success',
+                  title: 'Success',
+                  content: 'New Contact created!',
+                }
+            };
         }
         default: 
             throw new Error();
